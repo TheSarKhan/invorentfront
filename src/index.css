@@ -1,13 +1,84 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #04045E;
+    color: #ffffff;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #04045E;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #B9FA3C;
+    border-radius: 3px;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .glass-lime {
+    background: rgba(185, 250, 60, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(185, 250, 60, 0.2);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #B9FA3C, #78fa3c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #B9FA3C;
+    color: #04045E;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+  }
+  .btn-primary:hover {
+    background-color: #a8e835;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(185, 250, 60, 0.4);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid #B9FA3C;
+    color: #B9FA3C;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 12px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+  }
+  .btn-secondary:hover {
+    background-color: #B9FA3C;
+    color: #04045E;
+    transform: scale(1.05);
+  }
 }
