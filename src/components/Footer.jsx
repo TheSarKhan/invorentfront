@@ -1,21 +1,10 @@
 import { Mail, Phone, MapPin, Globe, Share2, GitBranch } from 'lucide-react';
-
-const navGroups = [
-  {
-    title: 'Platform',
-    links: ['Xüsusiyyətlər', 'Necə İşləyir', 'Qiymətlər', 'Yenilikler'],
-  },
-  {
-    title: 'Sahələr',
-    links: ['Construction', 'Equipment Rental', 'Manufacturing', 'Trading'],
-  },
-  {
-    title: 'Şirkət',
-    links: ['Haqqımızda', 'Bloq', 'Karyera', 'Partnyorlar'],
-  },
-];
+import { useLang } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLang();
+  const f = t.footer;
+
   return (
     <footer style={{ background: '#020230', borderTop: '1px solid rgba(185,250,60,0.15)', padding: '60px 24px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -23,31 +12,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-              <div style={{
-                width: 38, height: 38,
-                background: 'linear-gradient(135deg, #B9FA3C, #78fa3c)',
-                borderRadius: 10,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontWeight: 900, fontSize: 18, color: '#04045E',
-              }}>
-                I
-              </div>
-              <span style={{ fontSize: 22, fontWeight: 800, color: '#fff', letterSpacing: '-0.5px' }}>
-                Invo<span style={{ color: '#B9FA3C' }}>rent</span>
-              </span>
+              <div style={{ width: 38, height: 38, background: 'linear-gradient(135deg, #B9FA3C, #78fa3c)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: 18, color: '#04045E' }}>I</div>
+              <span style={{ fontSize: 22, fontWeight: 800, color: '#fff', letterSpacing: '-0.5px' }}>Invo<span style={{ color: '#B9FA3C' }}>rent</span></span>
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, lineHeight: 1.7, maxWidth: 260, marginBottom: 20 }}>
-              Investor ilə biznes arasında şəffaflığı təmin edən ERP platforması.
-            </p>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, lineHeight: 1.7, maxWidth: 260, marginBottom: 20 }}>{f.tagline}</p>
             <div style={{ display: 'flex', gap: 10 }}>
               {[Globe, Share2, GitBranch].map((Icon, i) => (
-                <button key={i} style={{
-                  width: 36, height: 36, borderRadius: 8,
-                  background: 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  cursor: 'pointer', transition: 'all 0.2s',
-                }}
+                <button key={i} style={{ width: 36, height: 36, borderRadius: 8, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'all 0.2s' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(185,250,60,0.15)'; e.currentTarget.style.borderColor = 'rgba(185,250,60,0.3)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
                 >
@@ -58,7 +29,7 @@ export default function Footer() {
           </div>
 
           {/* Nav groups */}
-          {navGroups.map(g => (
+          {f.navGroups.map(g => (
             <div key={g.title}>
               <h4 style={{ color: '#fff', fontWeight: 700, fontSize: 15, marginBottom: 16 }}>{g.title}</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -66,9 +37,7 @@ export default function Footer() {
                   <button key={l} style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, textDecoration: 'none', transition: 'color 0.2s', background: 'none', border: 'none', cursor: 'pointer', padding: 0, textAlign: 'left' }}
                     onMouseEnter={e => e.target.style.color = '#B9FA3C'}
                     onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.5)'}
-                  >
-                    {l}
-                  </button>
+                  >{l}</button>
                 ))}
               </div>
             </div>
@@ -91,17 +60,13 @@ export default function Footer() {
 
         {/* Bottom */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13 }}>
-            © 2024 Invorent. Bütün hüquqlar qorunur.
-          </p>
+          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13 }}>{f.copyright}</p>
           <div style={{ display: 'flex', gap: 24 }}>
-            {['Gizlilik Siyasəti', 'İstifadə Şərtləri', 'Cookie Policy'].map(l => (
+            {f.legal.map(l => (
               <button key={l} style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13, textDecoration: 'none', transition: 'color 0.2s', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                 onMouseEnter={e => e.target.style.color = '#B9FA3C'}
                 onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.3)'}
-              >
-                {l}
-              </button>
+              >{l}</button>
             ))}
           </div>
         </div>

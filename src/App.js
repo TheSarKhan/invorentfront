@@ -1,4 +1,5 @@
 import './App.css';
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
@@ -14,20 +15,22 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div style={{ backgroundColor: '#04045E', minHeight: '100vh', fontFamily: "'Inter', 'Poppins', sans-serif" }}>
-      <Navbar />
-      <Hero />
-      <Problem />
-      <Solution />
-      <Features />
-      <HowItWorks />
-      <Benefits />
-      <Industries />
-      <PlatformPreview />
-      <Trust />
-      <CTA />
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div style={{ backgroundColor: '#04045E', minHeight: '100vh', fontFamily: "'Inter', 'Poppins', sans-serif" }}>
+        <Navbar />
+        <Hero />
+        <Problem />
+        <Solution />
+        <Features />
+        <HowItWorks />
+        <Benefits />
+        <Industries />
+        <PlatformPreview />
+        <Trust />
+        <CTA />
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 
