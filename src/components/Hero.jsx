@@ -113,14 +113,6 @@ export default function Hero() {
             <button className="btn-secondary"><Play size={16} /> {h.cta2}</button>
           </motion.div>
 
-          <motion.div {...fadeUp(0.5)} style={{ marginTop: 48, display: 'flex', gap: 32 }}>
-            {[h.stat1, h.stat2, h.stat3].map(s => (
-              <div key={s.label}>
-                <p style={{ fontSize: 26, fontWeight: 800, color: '#B9FA3C' }}>{s.value}</p>
-                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>{s.label}</p>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
         <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} style={{ display: 'flex', justifyContent: 'center' }}>
