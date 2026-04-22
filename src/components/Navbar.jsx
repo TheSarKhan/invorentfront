@@ -4,9 +4,9 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 
 const LANGS = [
-  { code: 'az', label: 'AZ', flag: '🇦🇿' },
-  { code: 'en', label: 'EN', flag: '🇬🇧' },
-  { code: 'tr', label: 'TR', flag: '🇹🇷' },
+  { code: 'az', label: 'AZ', name: 'Azərbaycan' },
+  { code: 'en', label: 'EN', name: 'English' },
+  { code: 'tr', label: 'TR', name: 'Türkçe' },
 ];
 
 function LangSwitcher() {
@@ -29,7 +29,6 @@ function LangSwitcher() {
         onMouseEnter={e => { e.currentTarget.style.background = 'rgba(185,250,60,0.12)'; e.currentTarget.style.borderColor = 'rgba(185,250,60,0.3)'; }}
         onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}
       >
-        <span style={{ fontSize: 16 }}>{current.flag}</span>
         <span>{current.label}</span>
         <ChevronDown size={13} style={{ transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }} />
       </button>
@@ -66,8 +65,8 @@ function LangSwitcher() {
                 onMouseEnter={e => { if (l.code !== lang) e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
                 onMouseLeave={e => { if (l.code !== lang) e.currentTarget.style.background = 'none'; }}
               >
-                <span style={{ fontSize: 18 }}>{l.flag}</span>
-                <span>{l.code === 'az' ? 'Azərbaycan' : l.code === 'en' ? 'English' : 'Türkçe'}</span>
+                <span style={{ fontWeight: 700, fontSize: 12, color: l.code === lang ? '#B9FA3C' : 'rgba(255,255,255,0.5)', minWidth: 24 }}>{l.label}</span>
+                <span>{l.name}</span>
                 {l.code === lang && <span style={{ marginLeft: 'auto', fontSize: 11 }}>✓</span>}
               </button>
             ))}
