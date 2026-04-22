@@ -63,12 +63,12 @@ export default function Footer() {
               <h4 style={{ color: '#fff', fontWeight: 700, fontSize: 15, marginBottom: 16 }}>{g.title}</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {g.links.map(l => (
-                  <a key={l} href="#" style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, textDecoration: 'none', transition: 'color 0.2s' }}
+                  <button key={l} style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, textDecoration: 'none', transition: 'color 0.2s', background: 'none', border: 'none', cursor: 'pointer', padding: 0, textAlign: 'left' }}
                     onMouseEnter={e => e.target.style.color = '#B9FA3C'}
                     onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.5)'}
                   >
                     {l}
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
@@ -96,12 +96,12 @@ export default function Footer() {
           </p>
           <div style={{ display: 'flex', gap: 24 }}>
             {['Gizlilik Siyasəti', 'İstifadə Şərtləri', 'Cookie Policy'].map(l => (
-              <a key={l} href="#" style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13, textDecoration: 'none', transition: 'color 0.2s' }}
+              <button key={l} style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13, textDecoration: 'none', transition: 'color 0.2s', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                 onMouseEnter={e => e.target.style.color = '#B9FA3C'}
                 onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.3)'}
               >
                 {l}
-              </a>
+              </button>
             ))}
           </div>
         </div>
